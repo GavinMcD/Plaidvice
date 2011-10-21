@@ -1,8 +1,9 @@
 Plaidvice::Application.routes.draw do
   root :to => 'pages#home'
   
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/signout" => "sessions#destroy"
+  # Signin (automatic account creation) / Signout
+  match "/auth/:provider/callback" => "sessions#create", :as => "signin" 
+  match "/signout" => "sessions#destroy", :as => "signout"
   
   
   
