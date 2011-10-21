@@ -1,4 +1,10 @@
 Plaidvice::Application.routes.draw do
+  
+  get "sessions/create"
+
+  match 'test' => 'pages#home'
+  
+  match "/auth/:provider/callback" => "sessions#create"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
