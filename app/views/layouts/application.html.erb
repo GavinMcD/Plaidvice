@@ -12,11 +12,13 @@
 	<div class="topbar-inner">
 		<div class="container">
 			<div class="brand">
-				<%= link_to "Plaidvice", root_path %>
+				<%= link_to "Plaidvice", users_path %>
 			</div>
-			<div class="nav">
+			<ul class="nav">
 				<% if current_user %>
-					<%= link_to "Sign Out", signout_path %>
+					<li><%= link_to "Sign Out", signout_path %></li>
+					<li><%= link_to "Profile", user_path(current_user.id) %></li>
+					<li><%= link_to "Edit", edit_user_path(current_user.id) %></li>
 				<% else %>
 			  	<%= link_to "Sign In", "/auth/twitter" %>
 				<% end %>

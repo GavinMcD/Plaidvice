@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
   
+  def authenticate
+    unless current_user
+      redirect_to root_url, :flash => {:info => "You need to sign in first"}
+      return false
+    end
+  end
+
   private
   
   def current_user

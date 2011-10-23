@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :flash => {:success => "Aloha! (that's Hawaiian for Goodbye)"}
+    redirect_to users_path, :flash => {:success => "Aloha! (that's Hawaiian for Goodbye)"}
   end
 
 end

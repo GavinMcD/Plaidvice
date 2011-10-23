@@ -1,21 +1,27 @@
 class UsersController < ApplicationController
+  # Create is in the User model
+  before_filter :authenticate, :only => [:edit, :update, :destroy]
   
   def index
     @users = User.all
-    @user = User.find(session[:user_id]) unless User.find(session[:user_id]) == nil
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    if @user == nil
+      redirect_to users_path, :flash => {:info => "This person doesn't exist (in Pladvice that is...)"}
+    end
   end
   
   def edit
-    @user = User.find(params[:id])
-    @title = "Edit User"
+    @user = User.find_by_id(params[:id])
+    if @user == nil
+      redirect_to users_path, :flash => {:info => "This person doesn't exist (in Pladvice that is...)"}
+    end
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     if @user.update_attributes(params[:user])
       redirect_to @user, :flash => {:success => "Change = success"}
     else
@@ -25,10 +31,10 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     @user.destroy
     session[:user_id] = nil
-    redirect_to root_url, :flash => {:success => "Your account was deleted"}
+    redirect_to users_path, :flash => {:success => "Your account was deleted"}
   end
   
 end

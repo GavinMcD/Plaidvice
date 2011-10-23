@@ -1,5 +1,5 @@
 <% if current_user %>
 	<%= link_to "All Users", users_path %>
 <% else %>
-  nothing
+  <%= link_to "Sign Up", "/auth/twitter" %>
 <% end %>
