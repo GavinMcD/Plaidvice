@@ -1,0 +1,12 @@
+<% if !@users.blank? %>
+  <% for user in @users %>
+    <%= user.name %>
+		<%= user.description %>
+		<%= image_tag(user.image) %><br/>
+  <% end %>
+<% else %>
+  There are no users
+<% end %>
+
+
+<%= link_to "My profile", user_path(@user) %>

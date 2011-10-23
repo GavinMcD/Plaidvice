@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
-<div class="container">
+
+<div class="topbar">
+	<div class="topbar-inner">
+		<div class="container">
+			<div class="brand">
+				<%= link_to "Plaidvice", root_path %>
+			</div>
+			<div class="nav">
+				<% if current_user %>
+					<%= link_to "Sign Out", signout_path %>
+				<% else %>
+			  	<%= link_to "Sign In", "/auth/twitter" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="bodycontainer">
 
 	<% flash.each do |key, value| %>
 		<div class="alert-message <%= key %>"><%= value %></div>
@@ -16,6 +33,8 @@
 
 	<%= yield %>
 </div>
+
+<%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>

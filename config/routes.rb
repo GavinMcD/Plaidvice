@@ -5,6 +5,8 @@ Plaidvice::Application.routes.draw do
   match "/auth/:provider/callback" => "sessions#create", :as => "signin" 
   match "/signout" => "sessions#destroy", :as => "signout"
   
+  resources :users
+  
   
   
   

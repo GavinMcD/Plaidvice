@@ -1,0 +1,27 @@
+<%= image_tag(@user.image) %>
+
+<%= form_for @user do |f| -%>
+	<p>
+		<%= f.label :name, "Name" %>
+		<%= f.text_field :name %><br/>
+	</p>
+	<p>
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, :rows => 3 %><br />
+	</p>
+	<p>
+		<%= f.submit "update", :class => "btn primary" %>
+	</p>
+<% end -%>
+
+<br >
+
+<%= link_to "user index", users_path %>
+
+<br />
+
+<%= link_to "my profile", user_path(@user) %>
+
+<br />
+
+<%= link_to "delete", @user, :method => :delete, :confirm => "Are you sure?" %>

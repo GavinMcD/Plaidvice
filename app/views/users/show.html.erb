@@ -1,0 +1,11 @@
+<%= @user.name %>
+<%= @user.description %>
+<%= image_tag(@user.image) %><br/>
+
+<br >
+
+<%= link_to "user index", users_path %>
+
+<br />
+
+<%= link_to "edit myself", edit_user_path(@user) %>

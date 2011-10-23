@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   
+  # the create! do block gives us access to the user object before it
+  # is saved - we ingest this info from the OmniAuth Twitter env var
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
