@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
+  
+  # handling the cancan redirect for error
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to users_path, :flash => {:error => exception.message}
+  end
 
   private
   
