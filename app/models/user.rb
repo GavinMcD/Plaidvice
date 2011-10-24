@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base  
+  # Relationships
+  # -----------------------------------
+  has_many :nuggets, :dependent => :destroy
+  
   # new columns need to be added here to be writable through mass assignment
   # whenever you create or update a model in your controllers by using mass assignment
   attr_accessible :image, :description, :name
