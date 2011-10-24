@@ -1,0 +1,8 @@
+<% for nugget in @nuggets %>
+	<%= link_to image_tag(nugget.user.image), user_path(nugget.user) %>
+	<%= link_to nugget.user.name, user_path(nugget.user) %> says:<br/>
+	<p>
+		When it comes to <%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>
+		<%= link_to '>>', nugget_path(nugget) %>
+	</p>
+<% end %>

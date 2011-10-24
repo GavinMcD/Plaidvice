@@ -5,10 +5,13 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+    @nugget = Nugget.new
   end
   
   def show
     @user = User.find_by_id(params[:id])
+    @nuggets = @user.nuggets
+    @nugget = Nugget.new
     if @user == nil
       redirect_to users_path, :flash => {:info => "This person doesn't exist (in Pladvice that is...)"}
     end
@@ -35,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @user.destroy
     session[:user_id] = nil
-    redirect_to users_path, :flash => {:success => "Your account was deleted"}
+    redirect_to nuggets_path, :flash => {:success => "Your account was deleted"}
   end
   
 end

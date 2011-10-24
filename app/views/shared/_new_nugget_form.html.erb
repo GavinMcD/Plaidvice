@@ -1,0 +1,14 @@
+<%= form_for @nugget do |f| -%>
+  
+	<%= f.label :audience, "My advice to" %>
+	<%= f.text_field :audience %><br />
+	
+	<%= f.label :topic, "about" %>
+	<%= f.text_field :topic %><br />
+	
+	<%= f.label :body, "is that you should" %>
+	<%= f.text_area :body, :rows => 2 %><br />
+	
+	<%= f.submit "Submit" %>
+	
+<% end -%>

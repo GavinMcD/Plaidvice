@@ -1,4 +1,14 @@
 class NuggetsController < ApplicationController
+  before_filter :authenticate, :only => [:create, :destroy]
+  
+  def index
+    @nuggets = Nugget.all
+    @nugget = Nugget.new
+  end
+
+  def show
+    @nugget = Nugget.find(params[:id])
+  end
   
   def create
     @nugget = current_user.nuggets.build(params[:nugget])

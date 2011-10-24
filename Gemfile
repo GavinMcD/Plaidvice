@@ -32,7 +32,6 @@ group :development, :test do
   gem 'launchy'                         # Launchy let's us launch the current state of the app in the browser if we need to diagnose.
   gem 'database_cleaner'                # Necessary for undoing transactions in the database during our integration tests.
   gem 'sqlite3'                         
-  gem 'evergreen', :require => 'evergreen/rails'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec'
   gem 'guard-livereload'

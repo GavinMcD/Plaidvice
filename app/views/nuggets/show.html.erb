@@ -1,0 +1,7 @@
+<%= link_to "All Advice", nuggets_path %><br />
+
+<p>
+	<%= link_to image_tag(@nugget.user.image), user_path(@nugget.user) %>
+	<%= link_to @nugget.user.name, user_path(@nugget.user) %> says:<br/>
+	<p>When it comes to <%= @nugget.topic %>, <%= @nugget.audience %> should <%= @nugget.body %></p>
+</p>

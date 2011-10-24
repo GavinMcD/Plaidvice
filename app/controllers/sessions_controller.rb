@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
     auth = request.env["omniauth.auth"]
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
-    redirect_to users_path, :flash => {:success => "Aloha! (that's Hawaiian for Hello)"}
+    redirect_to root_path, :flash => {:success => "Aloha! (Hawaiian for Hello)"}
   end
   
   def destroy
     session[:user_id] = nil
-    redirect_to users_path, :flash => {:success => "Aloha! (that's Hawaiian for Goodbye)"}
+    redirect_to root_path, :flash => {:success => "Aloha! (Hawaiian for Goodbye)"}
   end
 
 end

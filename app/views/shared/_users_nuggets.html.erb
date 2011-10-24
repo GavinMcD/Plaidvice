@@ -1,0 +1,10 @@
+<% if !@nuggets.blank? %>
+  <% for nugget in @nuggets %>
+	<p>
+		<%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>.
+		<%= link_to '>>', nugget_path(nugget) %>
+	</p>
+  <% end %>
+<% else %>
+  
+<% end %>

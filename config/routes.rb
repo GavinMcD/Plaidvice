@@ -1,5 +1,5 @@
 Plaidvice::Application.routes.draw do
-  root :to => 'pages#home'
+  root :to => 'nuggets#index'
   
   # Signin (automatic account creation) / Signout
   match "/auth/:provider/callback" => "sessions#create", :as => "signin" 
@@ -7,7 +7,7 @@ Plaidvice::Application.routes.draw do
   
   resources :users
   
-  resources :nuggests
+  resources :nuggets
   
   
   

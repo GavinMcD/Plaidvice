@@ -1,0 +1,8 @@
+<%= render "shared/new_nugget_form" %>
+
+<h1>New Advice</h1>
+<% if !@nuggets.blank? %>
+	<%= render "shared/general_nuggets" %>
+<% else %>
+  There is no advice here
+<% end %>
