@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  # Using CanCan:  https://github.com/ryanb/cancan
   load_and_authorize_resource
+  
   # Create is in the User model
   before_filter :authenticate, :only => [:edit, :update, :destroy]
   

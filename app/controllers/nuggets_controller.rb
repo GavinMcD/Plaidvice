@@ -1,4 +1,5 @@
 class NuggetsController < ApplicationController
+  # Using CanCan:  https://github.com/ryanb/cancan
   load_and_authorize_resource
   
   before_filter :authenticate, :only => [:create, :destroy]
