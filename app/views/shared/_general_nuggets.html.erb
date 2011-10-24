@@ -5,4 +5,9 @@
 		When it comes to <%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>
 		<%= link_to '>>', nugget_path(nugget) %>
 	</p>
+	<p>
+		<% if can? :destroy, nugget %>
+			<%= link_to "delete advice", nugget, :method => :delete, :confirm => "Are You deleting advice?" %>
+		<% end %>
+	</p>
 <% end %>

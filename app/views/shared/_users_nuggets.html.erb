@@ -4,7 +4,10 @@
 		<%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>.
 		<%= link_to '>>', nugget_path(nugget) %>
 	</p>
-  <% end %>
+		<% if can? :destroy, nugget %>
+			<p><%= link_to "delete advice", nugget, :method => :delete, :confirm => "Are You deleting advice?" %></p>
+		<% end %>
+	<% end %>
 <% else %>
   
 <% end %>

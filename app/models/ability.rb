@@ -3,10 +3,16 @@ class Ability
 
   def initialize(user)
     user ||= User.new # <= this is a guest user (not logged in)
-   
+    
     can :read, :all
+    
     can [:update, :destroy], User do |currentuser|
       currentuser && currentuser.id == user.id
+    end
+    
+    can :create, Nugget
+    can [:update, :destroy], Nugget do |nugget|
+      nugget && nugget.user.id == user.id
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.
