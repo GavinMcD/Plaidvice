@@ -1,6 +1,10 @@
 <%= render "shared/new_nugget_form" %>
 
 <h1>Profile</h1>
+<% if can? :edit, @user %>
+	<p><%= link_to "Settings", edit_user_path(@user) %></p>
+<% end %>
+
 
 <%= @user.name %><br/>
 <%= @user.description %><br/>

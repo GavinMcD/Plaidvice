@@ -11,15 +11,13 @@
 <div class="topbar">
 	<div class="topbar-inner">
 		<div class="container">
-			<div class="brand">
-				<%= link_to "Plaidvice", root_path %>
-			</div>
-			<ul class="nav">
+			<div class="brand"><%= link_to "Plaidvice", root_path %></div>
+			<ul class="nav">		
 				<% if current_user %>
-					<li><%= link_to "Sign Out", signout_path %></li>
-					<li><%= link_to "Profile", user_path(current_user.id) %></li>
-					<li><%= link_to "Settings", edit_user_path(current_user.id) %></li>
+					<li><%= link_to "Advice", nuggets_path %></li>
 					<li><%= link_to "People", users_path %></li>
+					<li><%= link_to "Profile", user_path(current_user.id) %></li>
+					<li><%= link_to "Sign Out", signout_path %></li>
 				<% else %>
 			  	<li><%= link_to "Sign In", "/auth/twitter" %></li>
 				<% end %>
