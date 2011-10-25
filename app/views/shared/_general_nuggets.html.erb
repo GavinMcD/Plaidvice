@@ -7,19 +7,18 @@
 			<div class="span1">
 				<%= link_to image_tag(nugget.user.image), user_path(nugget.user) %>
 			</div>
-			
 			<div class="span5">
 				<em>From <%= nugget.user.name %></em><br/>
 				When it comes to <%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>.
 			</div>
 				
+			<br/>
+			
 			<div class="span1">
 				<div class="pull-right">
 					<%= link_to 'view', nugget_path(nugget) %>
 				</div>
-				
 				<br/>
-				
 				<% if can? :destroy, nugget %>
 					<span class="pull-right">
 						<%= link_to "delete", nugget, :method => :delete, :confirm => "Are You deleting advice?" %>

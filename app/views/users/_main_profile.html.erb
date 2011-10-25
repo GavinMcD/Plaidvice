@@ -1,7 +1,24 @@
-<% for user in @users %>
-	<p>
-  	<%= link_to user.name, user_path(user) %><br/>
-		<%= user.description %><br/>
-		<%= link_to image_tag(user.image), user_path(user) %><br/>
-	</p>
-<% end %>
+<div class="row">
+	<div class="span7 offset4">
+		
+		<div class="page-header">
+			<h2>All Advisors</h2>
+		</div>
+
+		<% for user in @users %>
+		
+			<div class="row">
+				<div class="span1">
+					<%= link_to image_tag(user.image), user_path(user) %>
+				</div>
+				<div class="span6">
+					<strong><%= link_to user.name, user_path(user) %></strong><br />
+					<%= user.description %>
+				</div>
+			</div>
+			<hr>
+
+		<% end %>
+
+	</div>
+</div>

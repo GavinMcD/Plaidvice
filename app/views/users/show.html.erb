@@ -1,14 +1,34 @@
 <%= render "shared/new_nugget_form" %>
 
-<h1>Profile</h1>
-<% if can? :edit, @user %>
-	<p><%= link_to "Settings", edit_user_path(@user) %></p>
-<% end %>
 
+<div class="row">
+	
+	<div class="span7 offset4">
+		
+		<div class="page-header">
+			<h2>Why listen to <%= @user.name %>?</h2>
+		</div>
+		
+		<div class="row">
+			<div class="span1">
+				<%= image_tag(@user.image) %>
+			</div>
+			<div class="span6">
+				<p><%= @user.description %></p>
+				<% if can? :edit, @user %>
+					<span class="pull-right"><%= link_to "edit", edit_user_path(@user) %></span>
+				<% end %>
+			</div>
+		</div>
+		
+		<div class="page-header">
+		</div>
+		
+		<h2>Their Advice</h2>
+		<br>
+		
+	</div>
 
-<%= @user.name %><br/>
-<%= @user.description %><br/>
-<%= image_tag(@user.image) %><br/>
+</div>
 
-<p>When it comes to</p>
 <%= render "shared/users_nuggets" %>
