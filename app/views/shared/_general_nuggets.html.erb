@@ -15,14 +15,14 @@
 				
 			<div class="span1">
 				<div class="pull-right">
-					<%= link_to '>', nugget_path(nugget) %>
+					<%= link_to 'view', nugget_path(nugget) %>
 				</div>
 				
 				<br/>
 				
 				<% if can? :destroy, nugget %>
 					<span class="pull-right">
-						<%= link_to "x", nugget, :method => :delete, :confirm => "Are You deleting advice?" %>
+						<%= link_to "delete", nugget, :method => :delete, :confirm => "Are You deleting advice?" %>
 					</span>
 				<% end %>
 			</div>

@@ -1,14 +1,29 @@
 <% if !@nuggets.blank? %>
   <% for nugget in @nuggets %>
-	
-	<p>
-		<%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>.
-		<%= link_to '>>', nugget_path(nugget) %>
-	</p>
-		<% if can? :destroy, nugget %>
-			<p><%= link_to "delete advice", nugget, :method => :delete, :confirm => "Are You deleting advice?" %></p>
-		<% end %>
-	
+
+	<div class="row">
+		<div class="span7 offset4">
+			
+			<div class="row">
+				
+				<div class="span6">
+					<h4>Regarding <%= nugget.topic %>:</h4>
+					<%= nugget.audience %> should <%= nugget.body %>.
+				</div>
+				<div class="span1">
+					<br/>
+					<span class="pull-right"><%= link_to 'view', nugget_path(nugget) %></span>
+					<% if can? :destroy, nugget %>
+						<span class="pull-right"><%= link_to "delete", nugget, :method => :delete, :confirm => "Are You deleting advice?" %></span>
+					<% end %>
+				</div>
+				
+			</div>
+			<hr>
+		
+		</div>
+	</div>
+
 	<% end %>
 <% else %>
 	<h2>They've given no advice yet...</h2>
