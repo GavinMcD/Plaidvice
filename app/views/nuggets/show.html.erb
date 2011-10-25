@@ -1,7 +1,12 @@
-<%= link_to "All Advice", nuggets_path %><br />
-
-<p>
-	<%= link_to image_tag(@nugget.user.image), user_path(@nugget.user) %>
-	<%= link_to @nugget.user.name, user_path(@nugget.user) %> says:<br/>
-	<p>When it comes to <%= @nugget.topic %>, <%= @nugget.audience %> should <%= @nugget.body %></p>
-</p>
+<div class="row">
+	<div class="span10 offset1">
+		
+		<div class="page-header">
+			<h4>When it comes to</h4>
+			<h1><%= @nugget.topic %>,</h1>
+			<h4><%= @nugget.audience %> should <%= @nugget.body %>.</h4>
+		</div>
+		<span class="pull-right">Advice from: <%= link_to @nugget.user.name, user_path(@nugget.user) %></span>
+		
+	</div>
+</div>
