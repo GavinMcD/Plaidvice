@@ -9,30 +9,36 @@
 <body>
 
 <div class="topbar">
-	<div class="topbar-inner">
+	<div class="fill">
 		<div class="container">
 			<div class="brand"><%= link_to "Plaidvice", root_path %></div>
-			<ul class="nav">		
-				<% if current_user %>
-					<li><%= link_to "Advice", nuggets_path %></li>
-					<li><%= link_to "People", users_path %></li>
-					<li><%= link_to "Profile", user_path(current_user.id) %></li>
-					<li><%= link_to "Sign Out", signout_path %></li>
-				<% else %>
-			  	<li><%= link_to "Sign In", "/auth/twitter" %></li>
-				<% end %>
+				<div class="pull-right">
+					<ul>
+						<% if current_user %>
+							<li><%= link_to "Advice", nuggets_path %></li>
+							<li><%= link_to "People", users_path %></li>
+							<li><%= link_to "Profile", user_path(current_user.id) %></li>
+							<li><%= link_to "Sign Out", signout_path %></li>
+						<% else %>
+					  	<li><%= link_to "Sign In", "/auth/twitter" %></li>
+						<% end %>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="bodycontainer">
-
-	<% flash.each do |key, value| %>
-		<div class="alert-message <%= key %>"><%= value %></div>
-	<% end %>
-
-	<%= yield %>
+<div class="container">
+	<div id="main-content">
+		
+		<% flash.each do |key, value| %>
+			<div class="alert-message <%= key %>"><%= value %></div>
+		<% end %>
+		
+		<%= yield %>
+		
+	</div>
 </div>
 
 <%= debug(params) if Rails.env.development? %>

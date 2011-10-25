@@ -7,22 +7,18 @@
  *= require_tree . 
 */
 
-/* Header Bar Content */
-/* */
-.topbar .topbar-inner .container .nav {
+
+/* ---------------------------------*/
+/* Header Bar  */
+/* ---------------------------------*/
+.pull-right {
 	float: right;
 }
 
-/* Main Content Body */
-/* */
-.bodycontainer {
-	margin-top: 4em;
-  width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  zoom: 1;
-}
 
+#main-content {
+	margin-top: 4em;
+}
 
 
 
