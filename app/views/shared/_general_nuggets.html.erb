@@ -1,15 +1,17 @@
 <% for nugget in @nuggets %>
 
 <div class="row">
-	<div class="span7 offset4">
+	<div class="span14 offset2">
 		<div class="row">
 			
-			<div class="span1">
+			<div class="span2">
+				<%= nugget.user.name %><br/>
 				<%= link_to image_tag(nugget.user.image), user_path(nugget.user) %>
 			</div>
-			<div class="span5">
-				<em>From <%= nugget.user.name %></em><br/>
-				When it comes to <%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>.
+			<div class="span11">
+				<h5>When it comes to</h5> 
+				<h2><%= nugget.topic %>,</h2>
+				<h5><%= nugget.audience %> should <%= nugget.body %>.</h5>
 			</div>
 				
 			<br/>

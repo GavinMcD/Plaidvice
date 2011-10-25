@@ -1,32 +1,55 @@
-<h1>Settings</h1>
+<div class="row">
+	<div class="span8 offset4">
+		
+		<div class="page-header">
+			<h2>Update</h2>
+		</div>
+		
+		<div class="row">
+			<div class="span2">
+				<%= image_tag(@user.image) %><br />
+				<%= link_to "Back to Profile", user_path(@user) %>
+			</div>
+			<div class="span6">
+				
+				<div class="form-stacked">
+					<fieldset>
 
-<%= image_tag(@user.image) %>
+						<%= form_for @user do |f| -%>
+							<p>
+								<%= f.text_field :name %>
+							</p>
+							<p>
+								<%= f.label :description, "Why is your advice valuable?" %>
+								<%= f.text_area :description, :rows => 5 %>
+							</p>
+							<p>
+								<%= f.submit "update", :class => "btn primary" %>
+							</p>
+						<% end -%>
 
-<%= form_for @user do |f| -%>
-	<p>
-		<%= f.label :name, "Name" %>
-		<%= f.text_field :name %><br/>
-	</p>
-	<p>
-		<%= f.label :description, "Description" %>
-		<%= f.text_area :description, :rows => 3 %><br />
-	</p>
-	<p>
-		<%= f.submit "update", :class => "btn primary" %>
-	</p>
-<% end -%>
+						<div class="page-header">
+							<h6>Other Actions</h6>
+						</div>
+						<%= link_to "Remove My Account", @user, :method => :delete, :confirm => "Are you sure?", :class => "btn success" %>
 
-<br >
 
-<%= link_to "All Users", users_path %>
+					</fieldset>
+				</div>
+				
+			</div>
+			
+		</div>	
+		
+	</div>
+</div>
 
-<br />
 
-<%= link_to "My Profile", user_path(@user) %>
 
-<br />
 
-<%= link_to "End My Account", @user, :method => :delete, :confirm => "Are you sure?" %>
+
+
+<%= link_to "End My Account", @user, :method => :delete, :confirm => "Are you sure?", :class => "btn success" %>
 
 <br >
 

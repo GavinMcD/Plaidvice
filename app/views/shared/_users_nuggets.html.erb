@@ -2,16 +2,15 @@
   <% for nugget in @nuggets %>
 
 	<div class="row">
-		<div class="span7 offset4">
+		<div class="span14 offset2">
 			
 			<div class="row">
 				
-				<div class="span6">
-					<h4>regarding <%= nugget.topic %>:</h4>
-					<%= nugget.audience %> should <%= nugget.body %>.
+				<div class="span11">
+					<h2>on <%= nugget.topic %>:</h2>
+					<h5><%= nugget.audience %> should <%= nugget.body %>.</h5>
 				</div>
 				<div class="span1">
-					<br/>
 					<span class="pull-right"><%= link_to 'view', nugget_path(nugget) %></span>
 					<% if can? :destroy, nugget %>
 						<span class="pull-right"><%= link_to "delete", nugget, :method => :delete, :confirm => "Are You deleting advice?" %></span>
