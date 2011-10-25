@@ -1,14 +1,38 @@
-<%= form_for @nugget do |f| -%>
-  
-	<%= f.label :audience, "My advice to" %>
-	<%= f.text_field :audience %><br />
-	
-	<%= f.label :topic, "about" %>
-	<%= f.text_field :topic %><br />
-	
-	<%= f.label :body, "is that you should" %>
-	<%= f.text_area :body, :rows => 2 %><br />
-	
-	<%= f.submit "Submit" %>
-	
-<% end -%>
+<div class="page-header">
+	<h1>What's your advice?</h1>
+</div>
+
+<div class="new-nugget">
+	<div class="span16">
+
+		<form-stacked>
+			<fieldset>
+		
+				<div class="clearfix">
+					<div class="input">
+
+						<%= form_for @nugget do |f| -%>
+							<div class="inline-inputs">
+						
+								<strong>My advice to</strong>
+								<%= f.text_field :audience, :class => "span3", :placeholder => "new moms" %>
+						
+								<strong>about</strong>
+								<%= f.text_field :topic, :class => "span3", :placeholder => "choosing diapers" %>
+						
+								<strong>is that you should</strong>
+								<%= f.text_field :body, :rows => 2,  :class => "span4", :placeholder => "just buy whatever and don't worry."  %>
+
+								<%= f.submit "Tell 'em", :class => "btn primary" %>
+
+							<div>
+						<% end -%>
+
+					</div>
+				</div>
+
+			</fieldset>
+		</form-stacked>
+		
+	</div>
+</div>
