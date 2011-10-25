@@ -1,6 +1,13 @@
 <%= render "shared/new_nugget_form" %>
 
-<h1>New Advice</h1>
+<div class="row">
+	<div class="span7 offset4">
+		<div class="page-header">
+			<h2>Latest</h2>
+		</div>
+	</div>
+</div>
+
 <% if !@nuggets.blank? %>
 	<%= render "shared/general_nuggets" %>
 <% else %>

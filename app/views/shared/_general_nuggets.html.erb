@@ -1,13 +1,34 @@
 <% for nugget in @nuggets %>
-	<%= link_to image_tag(nugget.user.image), user_path(nugget.user) %>
-	<%= link_to nugget.user.name, user_path(nugget.user) %> says:<br/>
-	<p>
-		When it comes to <%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>
-		<%= link_to '>>', nugget_path(nugget) %>
-	</p>
-	<p>
-		<% if can? :destroy, nugget %>
-			<%= link_to "delete advice", nugget, :method => :delete, :confirm => "Are You deleting advice?" %>
-		<% end %>
-	</p>
+
+<div class="row">
+	<div class="span7 offset4">
+		<div class="row">
+			
+			<div class="span1">
+				<%= link_to image_tag(nugget.user.image), user_path(nugget.user) %>
+			</div>
+			
+			<div class="span5">
+				<em>From <%= nugget.user.name %></em><br/>
+				When it comes to <%= nugget.topic %>, <%= nugget.audience %> should <%= nugget.body %>.
+			</div>
+				
+			<div class="span1">
+				<div class="pull-right">
+					<%= link_to '>', nugget_path(nugget) %>
+				</div>
+				
+				<br/>
+				
+				<% if can? :destroy, nugget %>
+					<span class="pull-right">
+						<%= link_to "x", nugget, :method => :delete, :confirm => "Are You deleting advice?" %>
+					</span>
+				<% end %>
+			</div>
+			
+		</div><hr />
+	</div>
+</div>
+
 <% end %>

@@ -1,38 +1,39 @@
 <div class="page-header">
 	<h1>What's your advice?</h1>
-</div>
 
-<div class="new-nugget">
-	<div class="span16">
+	<div class="new-nugget">
+		<div class="span16">
 
-		<form-stacked>
-			<fieldset>
+			<form-stacked>
+				<fieldset>
 		
-				<div class="clearfix">
-					<div class="input">
+					<div class="clearfix">
+						<div class="input">
 
-						<%= form_for @nugget do |f| -%>
-							<div class="inline-inputs">
+							<%= form_for @nugget do |f| -%>
+								<div class="inline-inputs">
 						
-								<strong>My advice to</strong>
-								<%= f.text_field :audience, :class => "span3", :placeholder => "new moms" %>
+									<strong>My advice to</strong>
+									<%= f.text_field :audience, :class => "span3", :placeholder => "new moms" %>
 						
-								<strong>about</strong>
-								<%= f.text_field :topic, :class => "span3", :placeholder => "choosing diapers" %>
+									<strong>about</strong>
+									<%= f.text_field :topic, :class => "span3", :placeholder => "choosing diapers" %>
 						
-								<strong>is that you should</strong>
-								<%= f.text_field :body, :rows => 2,  :class => "span4", :placeholder => "just buy whatever and don't worry."  %>
+									<strong>is that you should</strong>
+									<%= f.text_field :body, :rows => 2,  :class => "span4", :placeholder => "just buy whatever and don't worry"  %>
+									.
+									<%= f.submit "Tell 'em", :class => "btn primary" %>
 
-								<%= f.submit "Tell 'em", :class => "btn primary" %>
+								<div>
+							<% end -%>
 
-							<div>
-						<% end -%>
-
+						</div>
 					</div>
-				</div>
 
-			</fieldset>
-		</form-stacked>
+				</fieldset>
+			</form-stacked>
 		
+		</div>
 	</div>
+
 </div>
