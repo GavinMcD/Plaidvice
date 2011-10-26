@@ -8,6 +8,11 @@ class NuggetsController < ApplicationController
     @nuggets = Nugget.all
     @nugget = Nugget.new
   end
+  
+  def audience
+    @nuggets = Nugget.all
+    @nugget = Nugget.new
+  end
 
   def show
     @nugget = Nugget.find(params[:id])

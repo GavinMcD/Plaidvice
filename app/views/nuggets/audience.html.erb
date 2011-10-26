@@ -2,16 +2,16 @@
 
 <div class="row">
 	<div class="span11 offset2">
-		<span class="pull-right"><%= link_to "by audience", audience_nuggets_path %></span>
+		<span class="pull-right"><%= link_to "by topic", nuggets_path %></span>
 		<div class="page-header">
-			<h2>Latest <small>by topic</small></h2>
+			<h2>Latest <small>by audience</small></h2>
 		</div>
 	</div>
 	<br>
 </div>
 
 <% if !@nuggets.blank? %>
-	<%= render "shared/general_nuggets" %>
+	<%= render "shared/general_nuggets_audience" %>
 <% else %>
   There is no advice here
 <% end %>

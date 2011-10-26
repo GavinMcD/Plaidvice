@@ -5,6 +5,7 @@ class Ability
     user ||= User.new # <= this is a guest user (not logged in)
     
     can :read, :all
+    can :audience, Nugget
     
     can [:update, :destroy], User do |currentuser|
       currentuser && currentuser.id == user.id

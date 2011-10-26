@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user
+  helper_method :current_user, :first_name, :last_name
   
   def authenticate
     unless current_user
@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
   # handling the cancan redirect for error
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to users_path, :flash => {:error => exception.message}
+  end
+  
+  def first_name(name)
+    name.split(' ', 2).first
+  end
+  
+  def last_name(name)
+    name.split(' ', 2).last
   end
 
   private

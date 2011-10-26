@@ -7,7 +7,9 @@ Plaidvice::Application.routes.draw do
   
   resources :users
   
-  resources :nuggets
+  resources :nuggets do
+    get :audience, :on => :collection
+  end
   
   
   

@@ -5,9 +5,9 @@
 		<div class="row">
 			
 			<div class="span10">
-				<h5>When it comes to</h5> 
-				<h2><%= nugget.topic %>,</h2>
-				<h5><%= nugget.audience %> should <%= nugget.body %>.</h5>
+				<h5>A word of advice to</h5> 
+				<h2><%= nugget.audience %></h2>
+				<h5>about <%= nugget.topic %>: You should <%= nugget.body %>.</h5>
 			</div>
 				
 			<br/>
@@ -25,7 +25,8 @@
 			</div>
 			
 			<div class="span3">
-				<span class="label">Advice from</span> <%= link_to first_name(nugget.user.name), user_path(nugget.user) %><br/>
+				<span class="label">Advice from</span>
+				<%= link_to first_name(nugget.user.name), user_path(nugget.user) %><br/>
 				<span class="label">Audience</span> <%= nugget.audience %><br/>
 				<span class="label">Topic</span> <%= nugget.topic %>
 			</div>
