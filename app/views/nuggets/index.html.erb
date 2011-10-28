@@ -2,16 +2,24 @@
 
 <div class="row">
 	<div class="span11 offset2">
-		<span class="pull-right"><%= link_to "by audience", audience_nuggets_path %></span>
 		<div class="page-header">
-			<h2>Latest <small>by topic</small></h2>
+			<h2>Latest</h2>
 		</div>
 	</div>
 	<br>
 </div>
 
 <% if !@nuggets.blank? %>
-	<%= render "shared/general_nuggets" %>
+
+	<% if params[:show_type] == 'topic' %>
+		<%= render 'topic_focus_nuggets' %>
+	<% elsif params[:show_type] == 'audience' || "" %>
+	  <%= render 'audience_focus_nuggets' %>
+	<% end %>
+
 <% else %>
-  There is no advice here
+
+  No advice here
 <% end %>
+
+

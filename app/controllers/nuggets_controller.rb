@@ -5,12 +5,15 @@ class NuggetsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
   
   def index
-    @nuggets = Nugget.all
-    @nugget = Nugget.new
-  end
-  
-  def audience
-    @nuggets = Nugget.all
+    case params[:find_by]
+      when 'topic'
+        @nuggets = Nugget.where(['topic = ?', params[:topic_name]])
+      when 'audience'
+        @nuggets = Nugget.where(['audience = ?', params[:audience_name]])
+      else
+        @nuggets = Nugget.all
+    end
+    
     @nugget = Nugget.new
   end
 

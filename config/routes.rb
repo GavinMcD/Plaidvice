@@ -7,12 +7,7 @@ Plaidvice::Application.routes.draw do
   
   resources :users
   
-  resources :nuggets do
-    get :audience, :on => :collection
-  end
-  
-  
-  
+  resources :nuggets
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
