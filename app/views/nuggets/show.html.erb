@@ -6,7 +6,25 @@
 			<h1><%= @nugget.topic %>,</h1>
 			<h4><%= @nugget.audience %> should <%= @nugget.body %>.</h4>
 		</div>
-		<span class="pull-right">Advice from: <%= link_to @nugget.user.name, user_path(@nugget.user) %></span>
 		
+		<div class="row">
+			<span class="pull-right">
+				Advice from: <%= link_to @nugget.user.name, user_path(@nugget.user) %>
+			</span>
+			
+			<br>
+			<br>
+			
+			<span class="pull-right">
+				<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com&amp;text=Advice%20for%20<%= @nugget.audience %>%20about%20<%= @nugget.topic %>..." class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br/>
+			</span>
+		</div>
+		
+	</div>
+	
+	<div class="span4">
+		<span class="pull-right">
+			<%= link_to "back to all advice", nuggets_path %>
+		</span>
 	</div>
 </div>

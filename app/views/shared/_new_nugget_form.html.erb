@@ -1,40 +1,40 @@
-<div class="page-header">
-	<h1>What's your advice?</h1>
+<div class="new-nugget">
 
-	<div class="new-nugget">
-		<div class="span16">
+	<form-stacked>
+	<fieldset>
 
-			<form-stacked>
-				<fieldset>
-		
-					<div class="clearfix">
-						<div class="input">
+		<div class="clearfix">
+			<div class="input">
 
-							<%= form_for @nugget do |f| -%>
-								<div class="inline-inputs">
-						
-									<strong>My advice to</strong>
-									<%= f.text_field :audience, :class => "span3", :placeholder => "college students" %>
-						
-									<strong>about</strong>
-									<%= f.text_field :topic, :class => "span3", :placeholder => "going to class" %>
-						
-									<strong>is that you should</strong>
-									<%= f.text_field :body, :rows => 2,  :class => "span4", :placeholder => "just go to the ones that interest you"  %>
-									.
-									<%= f.submit "Tell 'em", :class => "btn primary" %>
-
-								<div>
-							<% end -%>
-
-						</div>
+				<%= form_for @nugget do |f| -%>
+					<div class="page-header">
+						<h2>What's your advice today?</h2>
 					</div>
-
-				</fieldset>
-			</form-stacked>
+				
+					<div class="inline-inputs">
 		
+						<h5>
+							My advice to 
+								<% if @nuggets.nil? %>
+									<%= f.text_field :audience, :class => "span4", :placeholder => "new entrepreneurs" %>
+								<% else %>
+								  <%= f.text_field :audience, :class => "span4", :placeholder => @nuggets.first.audience %>
+								<% end %>
+							about <%= f.text_field :topic, :class => "span4", :placeholder => "hiring your first founders" %>:<br/>
+							You should <%= f.text_field :body, :rows => 2,  :class => "span9", :placeholder => "just go to the ones that interest you"  %>.
+						</h5>
+	
+						<br/>
+					
+						<%= f.submit "Post it", :class => "btn large primary" %>
+
+					<div>
+				<% end -%>
+
+			</div>
 		</div>
-	</div>
+
+	</fieldset>
+	</form-stacked>
 
 </div>
-
