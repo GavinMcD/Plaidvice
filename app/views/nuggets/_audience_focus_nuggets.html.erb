@@ -5,9 +5,9 @@
 			<blockquote>
 				
 				<p>A word of advice to <h2><%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %></h2></p>
-				<p>about <strong><%= nugget.topic %></strong>: <%= nugget.body %>.</p><br/>
+				<p>about <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>: <%= nugget.body %>.</p><br/>
 			
-				<span class="pull-right">
+				<span class="nugget_actions pull-right">
 					<small>
 						Advice from <%= link_to first_name(nugget.user.name), user_path(nugget.user) %> | 
 						<%= link_to 'View', nugget_path(nugget) %> 

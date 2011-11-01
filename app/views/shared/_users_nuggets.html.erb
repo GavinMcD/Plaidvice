@@ -4,10 +4,10 @@
 		<% for nugget in @nuggets %>
 			<blockquote>
 				
-				<h2><%= nugget.topic	 %>:</h2>
-				<p><strong><%= nugget.audience %></strong> should <%= nugget.body %>.</p><br/>
+				<h2>On <%= link_to nugget.topic, :controller => :nuggets, :action => :index, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>:</h2>
+				<p><%= link_to nugget.audience, :controller => :nuggets, :action => :index, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %> should <%= nugget.body %>.</p><br/>
 			
-				<span class="pull-right">
+				<span class="nugget_actions pull-right">
 					<small> 
 						<%= link_to 'View', nugget_path(nugget) %> 
 						<% if can? :destroy, nugget %>
