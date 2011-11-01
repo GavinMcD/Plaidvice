@@ -14,14 +14,21 @@
 					<div class="inline-inputs">
 		
 						<h5>
-							My advice to 
+							My advice to
 								<% if @nuggets.nil? %>
 									<%= f.text_field :audience, :class => "span4", :placeholder => "new entrepreneurs" %>
 								<% else %>
 								  <%= f.text_field :audience, :class => "span4", :placeholder => @nuggets.first.audience %>
 								<% end %>
-							about <%= f.text_field :topic, :class => "span4", :placeholder => "hiring your first founders" %>:<br/>
-							You should <%= f.text_field :body, :rows => 2,  :class => "span9", :placeholder => "just go to the ones that interest you"  %>.
+							
+							about 
+								<% if @nuggets.nil? %>
+									<%= f.text_field :topic, :class => "span4", :placeholder => "hiring your first founders" %>:<br/>
+								<% else %>
+								  <%= f.text_field :topic, :class => "span4", :placeholder => @nuggets.first.topic %>:<br/>
+								<% end %>
+								
+							You should <%= f.text_field :body, :rows => 2,  :class => "span9", :placeholder => "give your advice here..."  %>
 						</h5>
 	
 						<br/>
