@@ -1,4 +1,4 @@
-<div class="new-nugget">
+<div class="new-nugget span7 offset4">
 
 	<form-stacked>
 	<fieldset>
@@ -7,31 +7,34 @@
 			<div class="input">
 
 				<%= form_for @nugget do |f| -%>
-		<div class="span6 offset4">
+		<div class="span6">
 		
 					<div class="page-header">
 						<h2>What's your advice today?</h2>
 					</div>
 				
-					<div class="inline-inputs">
+					<div class="inputs">
 		
 						<h5>
 							My advice to
 								<% if @nuggets.nil? %>
-									<%= f.text_field :audience, :class => "span3", :placeholder => "new entrepreneurs" %>
+									<%= f.text_field :audience, :class => "span4", :placeholder => "new entrepreneurs" %>
 								<% else %>
-								  <%= f.text_field :audience, :class => "span3", :placeholder => @nuggets.first.audience %>
+								  <%= f.text_field :audience, :class => "span4", :placeholder => @nuggets.first.audience %>
 								<% end %>
 							
+							<br>
 							
-							about
+							When you're
 								<% if @nuggets.nil? %>
 									<%= f.text_field :topic, :class => "span4", :placeholder => "hiring your first founders" %>
 								<% else %>
 								  <%= f.text_field :topic, :class => "span4", :placeholder => @nuggets.first.topic %>
-								<% end %>
+								<% end %>,
 								
-							You should<br/> <%= f.text_area :body, :rows => 2,  :class => "span4", :placeholder => "give your advice here..."  %>.
+							<br>
+							
+							you should <%= f.text_field :body, :rows => 2,  :class => "span4", :placeholder => "give your advice here..."  %> .
 						</h5>
 	
 						<br/>

@@ -4,8 +4,8 @@
 		<% for nugget in @nuggets %>
 			<blockquote>
 				
-				<p>A word of advice to <h2><%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %></h2></p>
-				<p>about <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>: <%= nugget.body %>.</p><br/>
+				<p><h2>to <%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %>:</h2></p>
+				<p>When you're <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>, <%= nugget.body %>.</p><br/>
 			
 				<span class="nugget_actions pull-right">
 					<small>
