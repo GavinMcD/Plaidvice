@@ -7,11 +7,13 @@ class NuggetsController < ApplicationController
   def index
     case params[:find_by]
       when 'topic'
-        @nuggets = Nugget.where(['topic = ?', params[:topic_name]])
+        nuggets = Nugget.where(['topic = ?', params[:topic_name]])
+        @nuggets = nuggets.paginate(:page => params[:page],:per_page => 5)
       when 'audience'
-        @nuggets = Nugget.where(['audience = ?', params[:audience_name]])
+        nuggets = Nugget.where(['audience = ?', params[:audience_name]])
+        @nuggets = nuggets.paginate(:page => params[:page], :per_page => 5)
       else
-        @nuggets = Nugget.all
+        @nuggets = Nugget.paginate(:page => params[:page], :per_page => 5)
     end
     
     @nugget = Nugget.new

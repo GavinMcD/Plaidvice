@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'          # http://twitter.github.com/bootstrap/
 gem 'omniauth'
 gem "cancan"
-gem 'will_paginate', '~> 3.0.2'         # for pagination
+gem 'will_paginate'                    # for pagination
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -7,6 +7,8 @@
 			<div class="input">
 
 				<%= form_for @nugget do |f| -%>
+		<div class="span6 offset4">
+		
 					<div class="page-header">
 						<h2>What's your advice today?</h2>
 					</div>
@@ -14,27 +16,28 @@
 					<div class="inline-inputs">
 		
 						<h5>
-							Some advice for
+							My advice to
 								<% if @nuggets.nil? %>
-									<%= f.text_field :audience, :class => "span4", :placeholder => "new entrepreneurs" %>
+									<%= f.text_field :audience, :class => "span3", :placeholder => "new entrepreneurs" %>
 								<% else %>
-								  <%= f.text_field :audience, :class => "span4", :placeholder => @nuggets.first.audience %>
+								  <%= f.text_field :audience, :class => "span3", :placeholder => @nuggets.first.audience %>
 								<% end %>
 							
-							about 
+							
+							about
 								<% if @nuggets.nil? %>
-									<%= f.text_field :topic, :class => "span4", :placeholder => "hiring your first founders" %>:<br/>
+									<%= f.text_field :topic, :class => "span4", :placeholder => "hiring your first founders" %>
 								<% else %>
-								  <%= f.text_field :topic, :class => "span4", :placeholder => @nuggets.first.topic %>:<br/>
+								  <%= f.text_field :topic, :class => "span4", :placeholder => @nuggets.first.topic %>
 								<% end %>
 								
-							You should <%= f.text_field :body, :rows => 2,  :class => "span9", :placeholder => "give your advice here..."  %>.
+							You should<br/> <%= f.text_area :body, :rows => 2,  :class => "span4", :placeholder => "give your advice here..."  %>.
 						</h5>
 	
 						<br/>
 					
 						<%= f.submit "Post it", :class => "btn large primary" %>
-
+			</div>
 					<div>
 				<% end -%>
 

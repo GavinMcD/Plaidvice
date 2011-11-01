@@ -21,10 +21,20 @@
 			<hr />
 			<br/>
 		<% end %>
+		
 	</div>
 	
 	<div class="span3">
 		<%= link_to "browse all by topic", :action => 'index', :show_type => 'topic' %>
 	</div>
 	
+</div>
+
+
+<div class="row">
+	<div class="span11 offset2">
+		<div class="pagination">
+			<%= will_paginate %>
+		</div>
+	</div>
 </div>
