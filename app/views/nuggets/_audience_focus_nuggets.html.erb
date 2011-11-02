@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="span11">
 		<% if !@title.nil? %>
-			<strong>specific advice to <%= @title %></strong> | <%= link_to "all advice", nuggets_path %>
+			all advice <strong>to <%= @title %></strong> | <%= link_to "all advice", nuggets_path %>
 		<% else %>
-		  general advice <%= link_to "by topic", :action => 'index', :show_type => 'topic' %> | <strong>by audience</strong>
+		  all advice <%= link_to "by topic", :action => 'index', :show_type => 'topic' %> | <strong>by audience</strong>
 		<% end %>
 	</div>
 </div>

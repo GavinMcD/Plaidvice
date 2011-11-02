@@ -37,9 +37,13 @@
 /* ---------------------------------*/
 /* Nugget Show Template */
 /* ---------------------------------*/
+.nugget_actions {
+	color: #bfbfbf;	
+}
 .nugget_actions a {
 	color: #bfbfbf;
 }
+
 
 
 

@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span14 offset2">
-		<div class="page-header">
-			<h6>Peep This</h6>
+		<div class="nugget-title page-header">
+			<h6>a word of advice</h6>
 		</div>
 	</div>
 </div>
@@ -14,16 +14,38 @@
 			<h4><%= @nugget.audience %> should <%= @nugget.body %>.</h4>
 		</div>
 		
-		<div class="row">
-			<span class="pull-right">more advice from <%= link_to @nugget.user.name, user_path(@nugget.user) %> | <%= link_to "all advice", nuggets_path %></span>
-			
+	</div>
+	
+	<div class="span4">
+		<span class="nugget_actions pull-right">
+			more advice 
 			<br>
+			- <%= link_to "about #{@nugget.topic}", :controller => :nuggets, :action => :index, :find_by => "topic", :topic_name => @nugget.topic, :show_type => "topic" %>
 			<br>
-			
-			<span class="pull-right">
-				<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com&amp;text=Advice%20for%20<%= @nugget.audience %>%20about%20<%= @nugget.topic %>..." class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br/>
-			</span>
-		</div>
+			- <%= link_to "to #{@nugget.audience}", :controller => :nuggets, :action => :index, :find_by => "audience", :audience_name => @nugget.audience, :show_type => "audience" %>
+		</span>
+	</div>
+	
+</div>
+
+<div class="row">
+	<div class="span10 offset2">		
+		
+		<span class="pull-right">
+			from <%= link_to @nugget.user.name, user_path(@nugget.user) %>
+		</span>
+				
+		<br>
+		<br>
+	
+		<span class="pull-right">
+			<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com&amp;text=Advice%20for%20<%= @nugget.audience %>%20about%20<%= @nugget.topic %>..." class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br/>
+		</span>
 		
 	</div>
 </div>
+
+
+
+
+<br>
