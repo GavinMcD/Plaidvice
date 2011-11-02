@@ -1,23 +1,18 @@
-<%= render "shared/new_nugget_form" %>
-
 <div class="row">
 	<div class="span11 offset2">
-		<div class="page-header">
-			<h6>Learn from experience</h6>
-		</div>
+		
+		<%= render "shared/page_header_button" %>
+
+		<% if !@nuggets.blank? %>
+			<% if params[:show_type] == 'topic' %>
+				<%= render 'topic_focus_nuggets' %>
+			<% elsif params[:show_type] == 'audience' || "" %>
+			  <%= render 'audience_focus_nuggets' %>
+			<% end %>
+		<% else %>
+		  No advice here
+		<% end %>
+
 	</div>
-	<br>
 </div>
 
-<% if !@nuggets.blank? %>
-
-	<% if params[:show_type] == 'topic' %>
-		<%= render 'topic_focus_nuggets' %>
-	<% elsif params[:show_type] == 'audience' || "" %>
-	  <%= render 'audience_focus_nuggets' %>
-	<% end %>
-
-<% else %>
-
-  No advice here
-<% end %>

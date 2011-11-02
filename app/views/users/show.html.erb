@@ -1,11 +1,8 @@
-<%= render "shared/new_nugget_form" %>
-
-
 <div class="row">
 	<div class="span14 offset2">
 		
 		<div class="page-header">
-			<h6>why listen to <%= first_name(@user.name) %></h6>
+			<h6><%= first_name(@user.name) %> | @<%= @user.nickname %></h6>
 		</div>
 		
 		<div class="span1">
@@ -15,43 +12,32 @@
 			<p><%= @user.description %></p>
 		</div>
 
-		<% if can? :edit, @user %>
-			
-			<div class="span3">
+		<div class="span6">
+			<% if can? :edit, @user %>
 				<span class="pull-right">
-					<%= link_to "my settings", edit_user_path(@user) %>
+					<%= link_to "settings", edit_user_path(@user), :class => "btn large" %>
 				</span>
-			</div>
-		
-			<div class="span3">
-				<span class="pull-right">
-					<%= link_to "back to all advice", nuggets_path %>
-				</span>
-			</div>
-			
-		<% else %>
-
-		  
-			<div class="span6">
-				<span class="pull-right">
-					<%= link_to "back to all advice", nuggets_path %>
-				</span>
-			</div>
-		
-		<% end %>
+			<% end %>
+		</div>
 		
 	</div>
 </div>
-
-<br/>
+<br>
 
 <div class="row">
 	<div class="span11 offset2">
-		
 		<div class="page-header">
-			<h6>Contributions</h6>
+			<h6><%= first_name(@user.name) %>'s <%= pluralize(@user.nuggets.count, "Piece")%> of Advice</h6>
 		</div>
 	</div>
 </div>
 
 <%= render "shared/users_nuggets" %>
+
+<div class="row">
+	<div class="span11 offset2">
+		<div class="pagination">
+			<%= will_paginate @nuggets %>
+		</div>
+	</div>
+</div>

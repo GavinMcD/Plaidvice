@@ -8,19 +8,23 @@ class NuggetsController < ApplicationController
     case params[:find_by]
       when 'topic'
         nuggets = Nugget.where(['topic = ?', params[:topic_name]])
-        @nuggets = nuggets.paginate(:page => params[:page],:per_page => 5)
+        @nuggets = nuggets.paginate(:page => params[:page],:per_page => 15)
+        @title = nuggets.first.topic
       when 'audience'
         nuggets = Nugget.where(['audience = ?', params[:audience_name]])
-        @nuggets = nuggets.paginate(:page => params[:page], :per_page => 5)
+        @nuggets = nuggets.paginate(:page => params[:page], :per_page => 15)
+        @title = nuggets.first.audience
       else
-        @nuggets = Nugget.paginate(:page => params[:page], :per_page => 5)
+        @nuggets = Nugget.paginate(:page => params[:page], :per_page => 15)
     end
-    
-    @nugget = Nugget.new
   end
 
   def show
     @nugget = Nugget.find(params[:id])
+  end
+  
+  def new
+    @nugget = Nugget.new
   end
   
   def create

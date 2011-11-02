@@ -1,10 +1,22 @@
 <div class="row">
-	
-	<div class="nugget span11 offset2">
+	<div class="span11">
+		<% if !@title.nil? %>
+			<strong>specific advice about <%= @title %></strong> | <%= link_to "all advice", nuggets_path %>
+		<% else %>
+		  general advice <strong>by topic</strong> | <%= link_to "by audience", :action => 'index', :show_type => 'audience' %>
+		<% end %>
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="nugget span11">
+		
 		<% for nugget in @nuggets %>
 			<blockquote>
 				
-				<p><h2>When <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>,</h2></p>
+				<p><h2>when <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>,</h2></p>
 				<p><%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %> should <%= nugget.body %>.</p><br/>
 			
 				<span class="nugget_actions pull-right">
@@ -23,17 +35,12 @@
 		<% end %>
 		
 	</div>
-	
-	<div class="span3">
-		<%= link_to "browse all by audience", :action => 'index', :show_type => 'audience' %>
-	</div>
-	
 </div>
 
 <div class="row">
-	<div class="span11 offset2">
+	<div class="span11">
 		<div class="pagination">
-			<%= will_paginate %>
+			<%= will_paginate @nuggets %>
 		</div>
 	</div>
 </div>

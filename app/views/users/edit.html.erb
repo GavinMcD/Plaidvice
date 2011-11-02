@@ -2,7 +2,7 @@
 	<div class="span8 offset4">
 		
 		<div class="page-header">
-			<h2>Your Settings</h2>
+			<h2>Settings</h2>
 		</div>
 		
 		<div class="row">
@@ -19,18 +19,19 @@
 								<%= f.text_field :name %>
 							</p>
 							<p>
-								<%= f.label :description, "Why will your advice benefit us?" %>
+								<%= f.label :description, "Tell people your background" %>
 								<%= f.text_area :description, :rows => 5 %>
 							</p>
 							<p>
-								<%= f.submit "update", :class => "btn primary" %> <%= link_to "(or back to Profile)", user_path(@user) %>
+								<%= f.submit "update", :class => "btn large primary" %> 
+								<%= link_to "(or back to profile)", user_path(@user) %>
 							</p>
 						<% end -%>
 
 						<div class="page-header">
 							<h6>Other Actions</h6>
 						</div>
-						<%= link_to "Remove My Account", @user, :method => :delete, :confirm => "Delete your account?", :class => "btn error" %>
+						<%= link_to "remove my account", @user, :method => :delete, :confirm => "Delete your account?", :class => "btn error" %>
 
 
 					</fieldset>

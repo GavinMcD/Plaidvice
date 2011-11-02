@@ -7,13 +7,11 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-    @nugget = Nugget.new
   end
   
   def show
     @user = User.find_by_id(params[:id])
-    @nuggets = @user.nuggets
-    @nugget = Nugget.new
+    @nuggets = @user.nuggets.paginate(:page => params[:page],:per_page => 5)
     if @user == nil
       redirect_to users_path, :flash => {:info => "This person doesn't exist (in Pladvice that is...)"}
     end
@@ -29,7 +27,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to @user, :flash => {:success => "Change = success"}
+      redirect_to @user, :flash => {:success => "Nice change #{first_name(@user.name)}. Very nice indeed."}
     else
       @title = 'Edit User'
       render 'edit'

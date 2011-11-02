@@ -1,7 +1,21 @@
-<%= render "shared/new_nugget_form" %>
+<div class="row">
+	<div class="span11 offset2">
+		
+		<%= render "shared/page_header_button" %>
+		
+		<div class="row">
+			<div class="span11">
+				<strong>all advisors</strong>
+			</div>
+		</div>
+		
+		<hr>
 
-<% if !@users.blank? %>
-	<%= render "users/main_profile"%>
-<% else %>
-  There are no users
-<% end %>
+		<% if !@users.blank? %>
+			<%= render "users/main_profile"%>
+		<% else %>
+		  There are no users
+		<% end %>
+		
+	</div>
+</div>

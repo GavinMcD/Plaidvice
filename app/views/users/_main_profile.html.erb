@@ -1,23 +1,19 @@
 <div class="row">
-	<div class="span7 offset4">
-		
-		<div class="page-header">
-			<h2>All Advisors</h2>
-		</div>
+	<div class="span11">
 
 		<% for user in @users %>
-		
 			<div class="row">
+				
 				<div class="span1">
 					<%= link_to image_tag(user.image), user_path(user) %>
 				</div>
 				<div class="span6">
-					<strong><%= link_to user.name, user_path(user) %></strong><br />
-					<%= user.description %>
+					<%= link_to user.name, user_path(user) %>
+					<h3><%= pluralize(user.nuggets.count, "post") %></h3>
 				</div>
+			
 			</div>
 			<hr>
-
 		<% end %>
 
 	</div>
