@@ -4,7 +4,7 @@
 		<% for nugget in @nuggets %>
 			<blockquote>
 				
-				<h2>On <%= link_to nugget.topic, :controller => :nuggets, :action => :index, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>:</h2>
+				<h3>On <%= link_to nugget.topic, :controller => :nuggets, :action => :index, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>:</h3>
 				<p><%= link_to nugget.audience, :controller => :nuggets, :action => :index, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %> should <%= nugget.body %>.</p><br/>
 			
 				<span class="nugget_actions pull-right">

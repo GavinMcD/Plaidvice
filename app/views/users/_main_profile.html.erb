@@ -8,8 +8,8 @@
 					<%= link_to image_tag(user.image), user_path(user) %>
 				</div>
 				<div class="span6">
-					<%= link_to user.name, user_path(user) %>
-					<h3><%= pluralize(user.nuggets.count, "post") %></h3>
+					<strong><%= user.name %></strong>
+					<h4><%= link_to pluralize(user.nuggets.count, "piece"), user_path(user) %> of advice</h4>
 				</div>
 			
 			</div>

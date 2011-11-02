@@ -1,6 +1,22 @@
-<div class="page-header">
-	<h1>
-		<%= link_to "give advice", new_nugget_path, :class => "btn large success" %>			
-		<small> (unlike plaid, good advice never goes out of style.)</small>
-	</h1>
-</div>
+<% if params[:find_by] == "audience" %>
+	<div class="page-header">
+		<h1>
+			<%= link_to "add more advice for #{truncate(@nuggets.first.audience, :length => 11)}", new_nugget_path, :class => "btn large success" %>			
+			<small> (unlike plaid, good advice never goes out of style.)</small>
+		</h1>
+	</div>
+<% elsif params[:find_by] == "topic" %>
+	<div class="page-header">
+		<h1>
+			<%= link_to "add more advice about #{truncate(@nuggets.first.topic, :length => 11)}", new_nugget_path, :class => "btn large success" %>			
+			<small> (unlike plaid, good advice never goes out of style.)</small>
+		</h1>
+	</div>
+<% else %>
+	<div class="page-header">
+		<h1>
+			<%= link_to "add your advice", new_nugget_path, :class => "btn large success" %>			
+			<small> (unlike plaid, good advice never goes out of style.)</small>
+		</h1>
+	</div>
+<% end %>

@@ -1,5 +1,5 @@
 Plaidvice::Application.routes.draw do
-  root :to => 'nuggets#index'
+  root :to => 'pages#home'
   
   # Signin (automatic account creation) / Signout
   match "/auth/:provider/callback" => "sessions#create", :as => "signin" 
@@ -8,6 +8,9 @@ Plaidvice::Application.routes.draw do
   resources :users
   
   resources :nuggets
+  
+  match "/home" => "pages#home",   :as => "home"
+  match "/about" => "pages#about",  :as => "about"  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

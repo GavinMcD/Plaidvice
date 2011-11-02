@@ -14,32 +14,21 @@
 			<%= form_for @nugget do |f| -%>
 			<div class="well">			
 	
-					<h4>
-						My advice to
-							<% if @nuggets.nil? %>
-								<%= f.text_field :audience, :class => "span4", :placeholder => "new entrepreneurs" %>
-							<% else %>
-							  <%= f.text_field :audience, :class => "span4", :placeholder => @nuggets.first.audience %>
-							<% end %>:
-					</h4>
-					
-					<br>
-						
-					<h4>	
-						when you're
-							<% if @nuggets.nil? %>
-								<%= f.text_field :topic, :class => "span4", :placeholder => "hiring your first founders" %>
-							<% else %>
-							  <%= f.text_field :topic, :class => "span4", :placeholder => @nuggets.first.topic %>
-							<% end %>,
-
-						you should <%= f.text_field :body, :rows => 2,  :class => "span6", :placeholder => "give your advice here..."  %> .
-					</h4>
-
-
-					<br/>
+				<h4>
+					My advice to
+					<%= f.text_field :audience, :class => "span4", :placeholder => "a person or	 group of people" %>:
+				</h4>
 				
-					<%= f.submit "post it", :class => "btn large success" %>
+				<br>
+					
+				<h4>	
+					when you're <%= f.text_field :topic, :class => "span4", :placeholder => "doing something" %>, 
+					you should <%= f.text_field :body, :rows => 2,  :class => "span6", :placeholder => "do this thing"  %> .
+				</h4>
+
+				<br/>
+			
+				<%= f.submit "post it", :class => "btn large success" %>
 				
 			</div>
 			<% end -%>

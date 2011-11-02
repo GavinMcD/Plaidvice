@@ -1,5 +1,16 @@
-<% if current_user %>
-	<%= link_to "All Users", users_path %>
-<% else %>
-  <%= link_to "Sign Up", "/auth/twitter" %>
-<% end %>
+<div class="row">
+	<div class="span11 offset2">
+
+		<div class="home-button">
+			<h1>Plaidvice<small> (unlike plaid, good advice never goes out of style.)</small></h1>
+			<hr>
+			<%= link_to "Sign up with Twitter", "/auth/twitter", :class => "btn large primary" %> or
+			<%= link_to "Sign In", "/auth/twitter", :class => "btn large info" %>
+		</div>
+						
+	</div>
+</div>
+
+
+<p><%= link_to "Learn", about_path %> about an advice community</p>
+<p>Browse <%= link_to "Plaidvice", nuggets_path %></p>

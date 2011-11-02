@@ -1,9 +1,11 @@
 <div class="row">
 	<div class="span11">
 		<% if !@title.nil? %>
-			all advice <strong>about <%= @title %></strong> | <%= link_to "all advice", nuggets_path %>
+			<h1>Browse Specific Advice</h1>
+			<strong>about <%= @title %></strong> | <%= link_to "back to all", nuggets_path %>
 		<% else %>
-		  all advice <strong>by topic</strong> | <%= link_to "by audience", :action => 'index', :show_type => 'audience' %>
+			<h1>Browse All Advice</h1>
+		  <strong>by topic</strong> | <%= link_to "by audience", :action => 'index', :show_type => 'audience' %>
 		<% end %>
 	</div>
 </div>
@@ -16,7 +18,7 @@
 		<% for nugget in @nuggets %>
 			<blockquote>
 				
-				<p><h2>when <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>,</h2></p>
+				<p><h3>when <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>,</h3></p>
 				<p><%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %> should <%= nugget.body %>.</p><br/>
 			
 				<span class="nugget_actions pull-right">
