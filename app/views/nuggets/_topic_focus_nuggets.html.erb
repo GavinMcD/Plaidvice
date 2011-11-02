@@ -1,12 +1,6 @@
 <div class="row">
 	<div class="span11">
-		<% if !@title.nil? %>
-			<h1>Browse Specific Advice</h1>
-			<strong>about <%= @title %></strong> | <%= link_to "back to all", nuggets_path %>
-		<% else %>
-			<h1>Browse All Advice</h1>
-		  <strong>by topic</strong> | <%= link_to "by audience", :action => 'index', :show_type => 'audience' %>
-		<% end %>
+		<%= render "topic_header" %>
 	</div>
 </div>
 

@@ -1,8 +1,6 @@
 <div class="row">
 	<div class="span11 offset2">
 		
-		<%= render "shared/page_header_button" %>
-
 		<% if !@nuggets.blank? %>
 			<% if params[:show_type] == 'topic' %>
 				<%= render 'topic_focus_nuggets' %>
