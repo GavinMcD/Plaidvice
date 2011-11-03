@@ -47,9 +47,14 @@
 /* ---------------------------------*/
 /* Home Page */
 /* ---------------------------------*/
-.home-button {
+.static-header {
 	text-align: center;
 	margin-bottom: 1em;
+}
+
+.static-main {
+	text-align: center;
+	margin-top: 12em;
 }
 
 

@@ -1,16 +1,26 @@
 <div class="row">
-	<div class="span11 offset2">
-
-		<div class="home-button">
-			<h1>Plaidvice<small> (unlike plaid, good advice never goes out of style.)</small></h1>
-			<hr>
-			<%= link_to "Sign up with Twitter", "/auth/twitter", :class => "btn large primary" %> or
-			<%= link_to "Login", "/auth/twitter", :class => "btn large info" %>
+	<div class="span12 offset2">
+		
+		<div class="row">
+			<div class="static-header">
+				<h2>Where people discover new advice and share advice, <br>based things they learn and experience daily.</h2><br>
+				<%= link_to "Sign up with Twitter", "/auth/twitter", :class => "btn large primary" %> or
+				<%= link_to "Login", "/auth/twitter", :class => "btn large info" %><br><br>
+				<%= link_to "Or, are you right?", about_path %>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="static-main">
+				<p>
+					<strong>FAQ</strong> |
+					<strong>Q:</strong> Why the name? 
+					<strong>A:</strong> Unlike plaid, good advice <strong>never</strong> goes out of style. | 
+					<strong>Q:</strong> Who Rules? 
+					<strong>A:</strong> <%= link_to "House rules" %>!
+				</p>
+			</div>
 		</div>
 						
 	</div>
 </div>
-
-
-<p><%= link_to "Learn", about_path %> about an advice community</p>
-<p>Browse <%= link_to "Plaidvice", nuggets_path %></p>
