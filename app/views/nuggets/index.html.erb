@@ -12,5 +12,11 @@
 		<% end %>
 
 	</div>
+
+	<% if !current_user %>
+		<div class="span3">
+			<%= link_to "Sign up now", "/auth/twitter", :class => "btn large primary" %>
+		</div>
+	<% end %>
 </div>
 
