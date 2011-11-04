@@ -1,21 +1,27 @@
 <% if !@title.nil? %>
 	<div class="row">
-		<div class="span6">
-			<h1>Browse Specific Advice</h1>
-			<strong>about <%= @title %></strong> | <%= link_to "back to all", nuggets_path %>
+		<div class="span7">
+			<h1>This is Specific Advice<br> about <%= @title %></h1>
 		</div>
-		<div class="span5">
+		<div class="span4">
 			<%= render "shared/page_header_button" %>
+			<span class="pull-right">
+				<br>
+				<%= link_to "back to all", nuggets_path %>
+			</span>
 		</div>
 	</div>
 <% else %>
 	<div class="row">
-		<div class="span6">
-			<h1>Browse All Advice</h1>
-	  	<strong>by topic</strong> | <%= link_to "by audience", :action => 'index', :show_type => 'audience' %>
+		<div class="span7">
+			<h1>This is General Advice<br> about What to Do</h1>
 		</div>
-		<div class="span5">
+		<div class="span4">
 			<%= render "shared/page_header_button" %>
+			<span class="pull-right">
+				<br>
+				<%= link_to "see all advice for people", :action => 'index', :show_type => 'audience' %>
+			</span>
 		</div>
 	</div>
 <% end %>

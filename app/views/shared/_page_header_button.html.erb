@@ -1,13 +1,13 @@
 <% if params[:find_by] == "audience" %>
 		<span class="pull-right">
-			<%= link_to "give more advice to #{truncate(@nuggets.first.audience, :length => 12)}", new_nugget_path, :class => "btn large success" %>			
+			<%= link_to "give advice to #{truncate(@nuggets.first.audience, :length => 10)}", new_nugget_path, :class => "btn large success" %>			
 		</span>
 <% elsif params[:find_by] == "topic" %>
 		<span class="pull-right">
-			<%= link_to "give more advice about #{truncate(@nuggets.first.topic, :length => 12)}", new_nugget_path, :class => "btn large success" %>			
+			<%= link_to "give advice on this topic", new_nugget_path, :class => "btn large success" %>			
 		</span>
 <% else %>
 		<span class="pull-right">
-			<%= link_to "add your advice", new_nugget_path, :class => "btn large success" %>	
+			<%= link_to "give your advice now", new_nugget_path, :class => "btn large success" %>	
 		</span>
 <% end %>

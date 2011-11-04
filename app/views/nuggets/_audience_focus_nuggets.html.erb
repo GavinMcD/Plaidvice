@@ -12,8 +12,9 @@
 		<% for nugget in @nuggets %>
 			<blockquote>
 				
-				<p><h3>to <%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %>:</h3></p>
-				<p>When you're <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>, <%= nugget.body %>.</p><br/>
+				<p>Advice for <strong><%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %></strong>
+				about <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>:<br> 
+				You should <%= nugget.body %>.</p>
 			
 				<span class="nugget_actions pull-right">
 					<small>

@@ -12,8 +12,8 @@
 		<% for nugget in @nuggets %>
 			<blockquote>
 				
-				<p><h3>when <%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %>,</h3></p>
-				<p><%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %> should <%= nugget.body %>.</p><br/>
+				<p>When <strong><%= link_to nugget.topic, :find_by => "topic", :topic_name => nugget.topic, :show_type => "topic" %></strong>,
+				<%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience, :show_type => "audience" %> should <%= nugget.body %>.</p><br/>
 			
 				<span class="nugget_actions pull-right">
 					<small>
