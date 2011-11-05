@@ -15,12 +15,14 @@
 				<div class="pull-right">
 					<ul>
 						<% if current_user %>
-							<li><%= link_to "Advice", nuggets_path %></li>
-							<li><%= link_to "Advisors", users_path %></li>
+							<li><%= link_to "Find Advice", nuggets_path %></li>
+							<li><%= link_to "Find People", users_path %></li>
+							<li><%= link_to "Give Advice", new_nugget_path %></li>
 							<li><%= link_to "Profile", user_path(current_user.id) %></li>
 							<li><%= link_to "Logout", signout_path %></li>
 						<% else %>
-						  <li><%= link_to "Advice", nuggets_path %></li>
+						  <li><%= link_to "Find Advice", nuggets_path %></li>
+							<li><%= link_to "Give Advice", new_nugget_path %></li>
 							<li><%= link_to "Sign Up", root_path %></li>
 							<li><%= link_to "Login", "/auth/twitter" %></li>
 						<% end %>

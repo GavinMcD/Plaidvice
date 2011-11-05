@@ -1,14 +1,16 @@
 <div class="row">
-	<div class="span11 offset2">
+	<div class="span11 offset2">
+
 		
 		<div class="page-header">
-			<h2>
+			<h1>
 				<% if current_user %>
-					What's your advice?
-				<% else %>
+					What's Your Advice Today?
+				<% else %>
+
 				  You must <%= link_to "Login", "auth/twitter" %> or <%= link_to "Sign Up", root_url %> to give advice
 				<% end %>
-			</h2>
+			</h1>
 		</div>
 
 		<form-stacked>

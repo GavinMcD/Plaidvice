@@ -1,12 +1,12 @@
 <div class="row">
-	<div class="span11 offset2">
+	<div class="span10 offset2">
 		<div class="nugget-title page-header">
-			<h6>a word of advice</h6>
+			<h6></h6>
 		</div>
 	</div>
 	
 	<% if !current_user %>
-		<div class="span3">
+		<div class="span3 offset1">
 			<%= link_to "Sign up now", "/auth/twitter", :class => "btn large primary" %>
 		</div>
 	<% end %>
@@ -16,19 +16,23 @@
 	<div class="span10 offset2">
 		
 		<div class="page-header">
-			<h1>When <%= @nugget.topic %>,</h1>
-			<h4><%= @nugget.audience %> should <%= @nugget.body %>.</h4>
+			<p>
+				A word of advice about <%= @nugget.topic %> to <%= @nugget.audience %>:<br>
+				You should <%= @nugget.body %>.
+			</p>
 		</div>
 		
 	</div>
 	
 	<div class="span4">
 		<span class="nugget_actions pull-right">
-			more advice 
+			More advice: 
 			<br>
-			- <%= link_to "about #{@nugget.topic}", :controller => :nuggets, :action => :index, :find_by => "topic", :topic_name => @nugget.topic, :show_type => "topic" %>
+			- from <%= link_to @nugget.user.name, user_path(@nugget.user) %>
 			<br>
-			- <%= link_to "to #{@nugget.audience}", :controller => :nuggets, :action => :index, :find_by => "audience", :audience_name => @nugget.audience, :show_type => "audience" %>
+			- about <%= link_to "#{@nugget.topic}", :controller => :nuggets, :action => :index, :find_by => "topic", :topic_name => @nugget.topic, :show_type => "topic" %>
+			<br>
+			- for <%= link_to "#{@nugget.audience}", :controller => :nuggets, :action => :index, :find_by => "audience", :audience_name => @nugget.audience, :show_type => "audience" %>
 		</span>
 	</div>
 	
@@ -36,16 +40,9 @@
 
 <div class="row">
 	<div class="span10 offset2">		
-		
+
 		<span class="pull-right">
-			from <%= link_to @nugget.user.name, user_path(@nugget.user) %>
-		</span>
-				
-		<br>
-		<br>
-	
-		<span class="pull-right">
-			<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com&amp;text=Advice%20for%20<%= @nugget.audience %>%20about%20<%= @nugget.topic %>..." class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br/>
+			<a href="https://twitter.com/share?url=https%3A%2F%2Fdev.twitter.com&amp;text=Some%20advice%20for%20<%= @nugget.audience %>%20about%20<%= @nugget.topic %>..." class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br/>
 		</span>
 		
 	</div>
