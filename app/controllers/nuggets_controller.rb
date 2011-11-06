@@ -15,7 +15,11 @@ class NuggetsController < ApplicationController
         @nuggets = nuggets.paginate(:page => params[:page], :per_page => 15)
         @title = nuggets.first.audience
       else
-        @nuggets = Nugget.paginate(:page => params[:page], :per_page => 15)
+        @search = Nugget.search do
+          fulltext params[:search]
+          paginate :page => params[:page], :per_page => 15
+        end
+        @nuggets = @search.results
     end
   end
 

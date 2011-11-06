@@ -16,4 +16,9 @@ class Nugget < ActiveRecord::Base
   validates_length_of   :topic, :within => 2..50, :on => :create, :message => "must be shorter than 30 characters"
   
   default_scope :order => "created_at DESC"
+  
+  
+  searchable do 
+    text  :audience, :topic, :body
+  end
 end

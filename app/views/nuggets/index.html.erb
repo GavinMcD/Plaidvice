@@ -1,5 +1,12 @@
 <div class="row">
 	<div class="span11 offset2">
+
+		<%= form_tag nuggets_path, :method => :get do %>
+		  <p>
+		    <%= text_field_tag :search, params[:search] %>
+		    <%= submit_tag "Search", :name => nil %>
+		  </p>
+		<% end %>
 		
 		<% if !@nuggets.blank? %>
 			<% if params[:show_type] == 'topic' %>
