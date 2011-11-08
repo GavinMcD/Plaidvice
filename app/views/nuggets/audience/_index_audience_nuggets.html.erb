@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="span11">
+		<%= render "nuggets/audience/audience_header" %>
+	</div>
+</div>
+
+<hr>
+
+
+		<% for nugget in @nuggets %>
+		<div class="row">
+			<div class="span1">
+				<%= link_to (image_tag nugget.user.image), user_path(nugget.user) %>
+			</div> 
+			<div class="span10">
+				<blockquote>
+				
+					<p>Advice for <%= link_to nugget.audience, :find_by => "audience", :audience_name => nugget.audience %>
+					about <%= nugget.topic %>:<br> 
+					You should <%= nugget.body %>.</p>
+			
+					<span class="pull-right">
+						<small>
+							Advice from <%= link_to first_name(nugget.user.name), user_path(nugget.user) %> | 
+							<%= link_to 'View', nugget_path(nugget) %> 
+							<% if can? :destroy, nugget %>
+								| <%= link_to "Delete", nugget, :method => :delete, :confirm => "Are You deleting advice?" %>
+							<% end %>
+						</small>
+					</span>
+				
+				</blockquote>
+				<br>
+				<br/>
+				<br>
+			</div>
+		</div>
+		<% end %>
+
+
+<div class="row">
+	<div class="span11">
+		<div class="pagination">
+			<%= will_paginate @nuggets %>
+		</div>
+	</div>
+</div>

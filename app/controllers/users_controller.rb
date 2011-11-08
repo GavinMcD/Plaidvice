@@ -6,15 +6,16 @@ class UsersController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :destroy]
   
   def index
-    @users = User.all
+    @search = User.search do
+      fulltext params[:search]
+      paginate :page => params[:page],:per_page => 35
+    end
+    @users = @search.results
   end
   
   def show
     @user = User.find_by_id(params[:id])
     @nuggets = @user.nuggets.paginate(:page => params[:page],:per_page => 5)
-    if @user == nil
-      redirect_to users_path, :flash => {:info => "This person doesn't exist (in Pladvice that is...)"}
-    end
   end
   
   def edit

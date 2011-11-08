@@ -1,10 +1,12 @@
 <div class="row">
 	<div class="span11 offset2">
-
+		
 		<% if !@nuggets.blank? %>
-			<%= link_to "advice for audiences", audience_nuggets_path %> | 
-			<%= link_to "advice about topics", topic_nuggets_path %>
-			<%= render "index_nuggets" %>
+			<% if params[:find_by] == 'audience' %>
+				<%= render 'nuggets/audience/specific_audience_nuggets' %>
+			<% else %>
+				<%= render 'nuggets/audience/index_audience_nuggets' %>
+			<% end %>
 		<% else %>
 		  No advice here
 		<% end %>
@@ -17,3 +19,4 @@
 		</div>
 	<% end %>
 </div>
+

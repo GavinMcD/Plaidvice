@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
     end
   end
   
+  searchable do
+    text  :name, :nickname, :image, :description
+  end
+  
 end

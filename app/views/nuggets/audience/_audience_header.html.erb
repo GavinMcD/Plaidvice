@@ -1,0 +1,51 @@
+<% if !@title.nil? %>
+	<div class="row">
+		<div class="span11">
+			<%= form_tag audience_nuggets_path, :method => :get do %>
+			  <p>
+			    <%= text_field_tag :search, params[:search] %>
+			    <%= submit_tag "Search", :name => nil %>
+			  </p>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span11">
+			<%= render "shared/page_header_button" %>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="span11">
+			<span class="pull-right">
+				<%= link_to "back audience advice", audience_nuggets_path %>
+			</span>
+			<h1>Advice just for <%= @title %></h1>
+		</div>
+	</div>
+<% else %>
+	<div class="row">
+		<div class="span11">
+			<%= form_tag audience_nuggets_path, :method => :get do %>
+			  <p>
+			    <%= text_field_tag :search, params[:search] %>
+			    <%= submit_tag "Search", :name => nil %>
+			  </p>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span11">
+			<%= render "shared/page_header_button" %>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="span11">
+			<span class="pull-right">
+				<%= link_to "advice about what to do", topic_nuggets_path %>
+			</span>
+			<h1>All Recent Advice for People</h1>
+		</div>
+	</div>
+<% end %>

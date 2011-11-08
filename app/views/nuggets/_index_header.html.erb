@@ -1,0 +1,22 @@
+
+<div class="row">
+	<div class="span11">
+		<%= form_tag audience_nuggets_path, :method => :get do %>
+		  <p>
+		    <%= text_field_tag :search, params[:search] %>
+		    <%= submit_tag "Search", :name => nil %>
+		  </p>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="span11">
+		<%= render "shared/page_header_button" %>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="span11">
+		<h1>Index of advice</h1>
+	</div>
+</div>
